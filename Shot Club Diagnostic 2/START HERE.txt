@@ -1,0 +1,94 @@
+SHOT CLUB - DIAGNOSTIC 2
+September 27, 2026
+
+WHAT THIS IS
+This separate test version records when the helper is loaded, enabled,
+and paused. It is not a verified anti-cheat bypass. A kick alone does not
+identify which check fired.
+
+QUICK START
+1. Extract the entire ZIP.
+2. Fully close NBA 2K17, then start it again as usual.
+3. Open "Open Shot Club Diagnostic.exe" from the extracted folder.
+4. It starts with assistance OFF and no game hooks created.
+5. Click "Start recording test" or press F11. A red RECORDING TEST label
+   and running timer confirm that your test log is being recorded.
+6. Click "Return to game" and do your test. Press F9 to see the timer again.
+7. Click "Stop recording" or press F11 again. A green TEST SAVED label
+   confirms the test's end was saved to Shot Club diagnostics.log.
+
+Recording is independent of assistance. For the paused test, leave
+assistance OFF the whole time. F8 or Enable assistance separately starts
+shot-timing assistance when that is the trial you intend to run.
+
+The recording is a text log of helper states, not screen video or audio.
+
+Keep the launcher and ShotClubDiagnostic.dll together. No login is needed.
+Keep this folder separate from your regular Shot Club folder.
+
+CONTROLS
+F6 / F7  Adjust release timing by 5 milliseconds
+F8       Enable / pause
+F9       Show controls
+F10      Pause and attempt to restore original game code
+F11      Start / stop recording a test log
+
+Hotkeys work when the game or these controls have focus.
+Return to game hides the controls and keeps the current assistance state.
+Closing the controls with X pauses first, then hides the window if the
+original entry bytes are confirmed restored. Fully closing NBA 2K17 unloads
+the helper. Restarting only the helper launcher does not start a fresh test.
+Recording continues when you hide the controls or pause assistance.
+Use F11 to stop recording. If the game crashes or exits, the log retains
+what was already saved, but may have no normal test-ending entry.
+
+UNDERSTANDING THE STATUS
+Loaded / hooks never created:
+  The diagnostic DLL is loaded, but no shot hooks have been prepared.
+Prepared / hooks never enabled:
+  Preparation happened, but assistance has not been activated.
+Active / game hooks installed:
+  Assistance is enabled.
+Paused / original entry bytes restored:
+  The hook library reported success and both checked game-code regions
+  match the original signatures. The DLL and hook memory remain loaded.
+Restoration unconfirmed / restart game:
+  Assistance is off, but code restoration could not be confirmed.
+  Fully close the game before another test.
+
+Pausing is not the same as a fresh game. A release already in progress
+may finish during a pause. No status means the helper is undetectable.
+
+FINDING WHEN YOUR SERVER BLOCKS IT
+Use separate fresh game sessions for these comparisons:
+1. Start the game without opening any helper. Try the same Got Next spot.
+2. Restart the game. Open this diagnostic helper and leave it paused for
+   the whole trial. Try the same spot.
+3. Restart again. Open this helper and enable assistance before the trial.
+   Try the same spot and normal shots if the server permits you to proceed.
+
+Press F11 just before the action you are observing to start the recording.
+After the result, press F11 again to stop and save the test ending.
+Note which trial you ran and the exact kick message/time. These comparisons narrow down the
+trigger; server rules, prior account flags, or delayed checks can still
+affect the result.
+
+SEND BACK
+The file "Shot Club diagnostics.log" in this folder, the trial number,
+and a screenshot of the kick message. This log appends sessions with UTC
+timestamps, process IDs, numbered tests, and elapsed times. While recording,
+it saves a helper-state sample every five seconds, plus lifecycle events.
+Background lifecycle entries remain available outside recorded tests.
+It records helper state, not anti-cheat internals.
+If you can access your server's matching detection entry, include that too.
+
+BUILD NOTES
+Compiled successfully; this diagnostic version has not been run in the
+game or tested against your server. Existing shot timing is unchanged.
+The earlier fade/post-fade limitation remains. Ratings and badges are not
+part of this helper. It supports the same exact NBA2K17.exe build as the
+previous standalone helper.
+
+The timing offset is saved in Shot Helper.ini. Shot Helper.log appends shot
+samples with a session header. Shot Club diagnostics.log preserves the
+lifecycle timeline across launches.
